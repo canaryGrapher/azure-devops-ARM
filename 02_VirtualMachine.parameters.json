@@ -1,0 +1,123 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "centralindia"
+    },
+    "networkInterfaceName": {
+      "value": "alyssumnginx926"
+    },
+    "enableAcceleratedNetworking": {
+      "value": true
+    },
+    "networkSecurityGroupName": {
+      "value": "AlyssumNginx-nsg"
+    },
+    "networkSecurityGroupRules": {
+      "value": [
+        {
+          "name": "SSH",
+          "properties": {
+            "priority": 300,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "22"
+          }
+        },
+        {
+          "name": "HTTPS",
+          "properties": {
+            "priority": 320,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "443"
+          }
+        },
+        {
+          "name": "HTTP",
+          "properties": {
+            "priority": 340,
+            "protocol": "TCP",
+            "access": "Allow",
+            "direction": "Inbound",
+            "sourceAddressPrefix": "*",
+            "sourcePortRange": "*",
+            "destinationAddressPrefix": "*",
+            "destinationPortRange": "80"
+          }
+        }
+      ]
+    },
+    "subnetName": {
+      "value": "default"
+    },
+    "virtualNetworkName": {
+      "value": "Alyssum-vnet"
+    },
+    "addressPrefixes": {
+      "value": ["10.0.0.0/16"]
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.0.0.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName": {
+      "value": "AlyssumNginx-ip"
+    },
+    "publicIpAddressType": {
+      "value": "Dynamic"
+    },
+    "publicIpAddressSku": {
+      "value": "Basic"
+    },
+    "pipDeleteOption": {
+      "value": "Delete"
+    },
+    "virtualMachineName": {
+      "value": "AlyssumNginx"
+    },
+    "virtualMachineComputerName": {
+      "value": "AlyssumNginx"
+    },
+    "virtualMachineRG": {
+      "value": "Alyssum"
+    },
+    "osDiskType": {
+      "value": "StandardSSD_LRS"
+    },
+    "osDiskDeleteOption": {
+      "value": "Delete"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "nicDeleteOption": {
+      "value": "Delete"
+    },
+    "adminUsername": {
+      "value": "azureuser"
+    },
+    "adminPassword": {
+      "value": null
+    },
+    "customData": {
+      "value": null
+    },
+    }
+  }
+}

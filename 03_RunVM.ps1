@@ -1,0 +1,1 @@
+az vm create --resource-group Alyssum --name centos74 --image OpenLogic:CentOS-CI:7-CI:latest --custom-data .\03-cloudinit.yaml --generate-ssh-keys
