@@ -7,4 +7,4 @@ New-AzResourceGroupDeployment `
     -Name NginxTestAlyssum `
     -ResourceGroupName AlyssumNginxTest `
     -TemplateFile $templateFile `
-    -TemplateParameterFile $parameterFile `
+    -TemplateParameterFile $parameterFile

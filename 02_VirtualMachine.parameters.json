@@ -113,11 +113,10 @@
       "value": "azureuser"
     },
     "adminPassword": {
-      "value": null
+      "value": "Alyssum@123"
     },
     "customData": {
-      "value": null
-    },
+      "value": "https://github.com/canaryGrapher/azure-devops-ARM/blob/main/03_cloudinit.txt"
     }
   }
 }

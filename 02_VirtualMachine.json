@@ -82,7 +82,7 @@
     {
       "name": "[parameters('networkInterfaceName')]",
       "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2020-05-01",
+      "apiVersion": "2021-03-01",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
@@ -125,7 +125,7 @@
     {
       "name": "[parameters('virtualNetworkName')]",
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2020-05-01",
+      "apiVersion": "2020-11-01",
       "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
@@ -149,7 +149,7 @@
     {
       "name": "[parameters('virtualMachineName')]",
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2021-07-01",
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
@@ -187,12 +187,8 @@
           "computerName": "[parameters('virtualMachineComputerName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "linuxConfiguration": {
-            "patchSettings": {
-              "patchMode": "ImageDefault"
-            }
-          },
-          "customData": "[parameters('customData')]"
+          "linuxConfiguration": "[null()]",
+          "customData": "[base64(parameters('customData'))]"
         },
         "diagnosticsProfile": {
           "bootDiagnostics": {
